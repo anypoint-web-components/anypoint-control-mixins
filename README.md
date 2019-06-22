@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/anypoint-web-components/anypoint-control-mixins.svg?branch=stage)](https://travis-ci.org/anypoint-web-components/anypoint-control-mixins)  
+[![Build Status](https://travis-ci.org/anypoint-web-components/anypoint-control-mixins.svg?branch=master)](https://travis-ci.org/anypoint-web-components/anypoint-control-mixins) 
 
 [![Published on NPM](https://img.shields.io/npm/v/@anypoint-web-components/anypoint-control-mixins.svg)](https://www.npmjs.com/package/@anypoint-web-components/anypoint-control-mixins)
 
