@@ -1,0 +1,8 @@
+{
+  "excludeFiles": [
+    "demo/*",
+    "test/*",
+    "index.html",
+    "karma.*"
+  ]
+}

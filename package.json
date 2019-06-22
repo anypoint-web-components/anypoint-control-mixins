@@ -1,0 +1,73 @@
+{
+  "name": "@anypoint-web-components/anypoint-control-mixins",
+  "description": "A set of mixins to be implemented in various controls reacting to user input",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "main": "anypoint-control-mixins.js",
+  "keywords": [
+    "anypoint",
+    "mixins",
+    "constrols",
+    "input"
+  ],
+  "authors": [
+    "Pawel Psztyc",
+    "The Advanced REST client authors <arc@mulesoft.com>"
+  ],
+  "contributors": [
+    "Pawel Psztyc",
+    "The Advanced REST client authors <arc@mulesoft.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/anypoint-web-components/anypoint-control-mixins.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anypoint-web-components/anypoint-control-mixins/issues",
+    "email": "arc@mulesoft.com"
+  },
+  "devDependencies": {
+    "@advanced-rest-client/arc-demo-helper": "^1.0.3",
+    "@advanced-rest-client/testing-karma-sl": "^1.0.2",
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.0",
+    "@open-wc/eslint-config": "^0.4.1",
+    "@open-wc/prettier-config": "^0.1.0",
+    "@open-wc/testing": "^0.11.1",
+    "@open-wc/testing-karma": "^2.0.6",
+    "@polymer/gen-typescript-declarations": "^1.6.1",
+    "@polymer/iron-test-helpers": "^3.0.0",
+    "@polymer/paper-input": "^3.0.2",
+    "husky": "^1.0.0",
+    "lint-staged": "^8.0.0",
+    "lit-element": "^2.0.1",
+    "lit-html": "^1.0.0",
+    "owc-dev-server": "^0.3.0",
+    "sinon": "^7.3.2"
+  },
+  "scripts": {
+    "start": "owc-dev-server --open demo",
+    "test": "karma start --coverage",
+    "test:watch": "karma start --auto-watch=true --single-run=false",
+    "test:legacy": "karma start --legacy --coverage",
+    "test:legacy:watch": "karma start --legacy --auto-watch=true --single-run=false",
+    "test:sl": "karma start karma.sl.config.js --legacy --coverage",
+    "update-types": "gen-typescript-declarations --deleteExisting --outDir .",
+    "lint:eslint": "eslint --ext .js,.html .",
+    "format:eslint": "eslint --ext .js,.html . --fix",
+    "lint:prettier": "prettier \"**/*.js\" --list-different || (echo '↑↑ these files are not prettier formatted ↑↑' && exit 1)",
+    "format:prettier": "prettier \"**/*.js\" --write",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "format": "npm run format:eslint && npm run format:prettier"
+  },
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
