@@ -7,3 +7,5 @@ CONTRIBUTING.md
 index.html
 polymer.json
 karma.*
+husky.*
+commitlint.*
