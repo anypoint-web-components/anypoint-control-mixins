@@ -1,4 +1,4 @@
-import { fixture, expect, nextFrame } from '@open-wc/testing';
+import { fixture, expect, assert, nextFrame } from '@open-wc/testing';
 import sinon from 'sinon/pkg/sinon-esm.js';
 import './test-elements.js';
 import '@polymer/iron-test-helpers/mock-interactions.js';
@@ -8,6 +8,10 @@ import '@polymer/iron-test-helpers/mock-interactions.js';
 describe('Focused state tests', function() {
   async function trivialFocusedState() {
     return (await fixture(`<test-control tabindex="-1"></test-control>`));
+  }
+
+  async function trivialButtonFixture() {
+    return (await fixture(`<test-button></test-button>`));
   }
 
   async function nestedFocusedState() {
@@ -124,6 +128,34 @@ describe('Focused state tests', function() {
       });
       MockInteractions.focus(lightDescendantShadowInput);
       expect(nFocusEvents).to.be.equal(0);
+    });
+  });
+
+  describe('receivedFocusFromKeyboard', () => {
+    let focusTarget;
+    beforeEach(async () => {
+      focusTarget = await trivialButtonFixture();
+    });
+
+    it('Has default value', () => {
+      assert.isFalse(focusTarget.receivedFocusFromKeyboard);
+    });
+
+    it('Has _receivedFocusFromKeyboard value', () => {
+      focusTarget._receivedFocusFromKeyboard = true;
+      assert.isTrue(focusTarget.receivedFocusFromKeyboard);
+    });
+
+    it('Sets state when element is focused', () => {
+      MockInteractions.focus(focusTarget);
+      assert.isTrue(focusTarget.receivedFocusFromKeyboard);
+    });
+
+    it('Re-sets state when key down', () => {
+      MockInteractions.focus(focusTarget);
+      assert.isTrue(focusTarget.receivedFocusFromKeyboard, 'Has true value');
+      MockInteractions.down(focusTarget);
+      assert.isFalse(focusTarget.receivedFocusFromKeyboard, 'Has false value');
     });
   });
 });

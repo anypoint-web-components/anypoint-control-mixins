@@ -101,7 +101,7 @@ export const ButtonStateMixin = dedupingMixin((base) => {
     }
 
     get receivedFocusFromKeyboard() {
-      return this._pointerDown;
+      return this._receivedFocusFromKeyboard || false;
     }
 
     get _receivedFocusFromKeyboard() {
