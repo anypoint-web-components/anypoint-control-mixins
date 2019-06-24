@@ -1,7 +1,7 @@
 {
   "name": "@anypoint-web-components/anypoint-control-mixins",
   "description": "A set of mixins to be implemented in various controls reacting to user input",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "Apache-2.0",
   "main": "anypoint-control-mixins.js",
   "keywords": [
