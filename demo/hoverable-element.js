@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { HoverableMixin } from '../hoverable-mixin.js';
 
 class HoverableElement extends HoverableMixin(LitElement) {
-  static get styles() {
+  get styles() {
     return css`:host {
       display: inline-flex;
       align-items: center;
@@ -40,7 +40,7 @@ class HoverableElement extends HoverableMixin(LitElement) {
   }
 
   render() {
-    return html`
+    return html`<style>${this.styles}</style>
     <span class="hovered">Hovered</span>
     <span class="not-hovered">Not hovered</span>
     <slot></slot>`;

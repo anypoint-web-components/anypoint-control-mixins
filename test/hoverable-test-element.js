@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { HoverableMixin } from '../hoverable-mixin.js';
 
 class HoverableTestElement extends HoverableMixin(LitElement) {
-  static get styles() {
+  get styles() {
     return css`:host {
       display: block;
       height: 100px;
@@ -12,7 +12,8 @@ class HoverableTestElement extends HoverableMixin(LitElement) {
   }
 
   render() {
-    return html`<h1>Hoverable mixin</h1>
+    return html`<style>${this.styles}</style>
+    <h1>Hoverable mixin</h1>
     <slot></slot>`;
   }
 }

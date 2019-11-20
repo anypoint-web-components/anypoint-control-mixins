@@ -3,7 +3,7 @@ import { ButtonStateMixin } from '../button-state-mixin.js';
 import { ControlStateMixin } from '../control-state-mixin.js';
 
 class SimpleButton extends ControlStateMixin(ButtonStateMixin(LitElement)) {
-  static get styles() {
+  get styles() {
     return css`
     :host {
       display: inline-block;
@@ -40,7 +40,7 @@ class SimpleButton extends ControlStateMixin(ButtonStateMixin(LitElement)) {
   }
 
   render() {
-    return html`<slot></slot>`;
+    return html`<style>${this.styles}</style><slot></slot>`;
   }
 }
 window.customElements.define('simple-button', SimpleButton);

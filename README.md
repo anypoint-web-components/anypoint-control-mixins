@@ -30,7 +30,7 @@ import { LitElement, html } from 'lit-element';
 import { ButtonStateMixin, ControlStateMixin } from '@anypoint-web-components/anypoint-control-mixins/anypoint-control-mixins.js';
 
 class SimpleButton extends ControlStateMixin(ButtonStateMixin(LitElement)) {
-  static get styles() {
+  get styles() {
     return css`
     :host {
       display: inline-block;
@@ -64,7 +64,7 @@ class SimpleButton extends ControlStateMixin(ButtonStateMixin(LitElement)) {
   }
 
   render() {
-    return html`<slot></slot>`;
+    return html`<style>${this.styles}</style><slot></slot>`;
   }
 }
 window.customElements.define('simple-button', SimpleButton);
