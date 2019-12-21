@@ -27,32 +27,33 @@
     "email": "arc@mulesoft.com"
   },
   "devDependencies": {
-    "@advanced-rest-client/arc-demo-helper": "^1.0.14",
-    "@advanced-rest-client/testing-karma-sl": "^1.0.4",
-    "@advanced-rest-client/eslint-config": "^1.1.1",
+    "@advanced-rest-client/arc-demo-helper": "^1.0.17",
+    "@advanced-rest-client/eslint-config": "^1.1.4",
     "@advanced-rest-client/prettier-config": "^0.1.0",
-    "@commitlint/cli": "^8.1.0",
-    "@commitlint/config-conventional": "^7.0.0",
-    "@open-wc/testing": "^0.11.1",
-    "@open-wc/testing-karma": "^2.0.16",
+    "@advanced-rest-client/testing-karma-sl": "^1.1.0",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@open-wc/testing": "^2.4.2",
+    "@open-wc/testing-karma": "^3.2.21",
     "@polymer/gen-typescript-declarations": "^1.6.1",
     "@polymer/iron-test-helpers": "^3.0.0",
-    "@polymer/paper-input": "^3.0.2",
-    "husky": "^1.0.0",
-    "lint-staged": "^8.0.0",
+    "@polymer/paper-input": "^3.1.0",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
     "lit-element": "^2.2.1",
     "lit-html": "^1.1.2",
-    "owc-dev-server": "^0.3.0",
-    "sinon": "^7.4.1"
+    "deepmerge": "^4.2.2",
+    "es-dev-server": "^1.32.0",
+    "sinon": "^7.5.0"
   },
   "scripts": {
-    "start": "owc-dev-server --open demo",
+    "start": "es-dev-server --app-index demo/index.html --node-resolve --open --watch",
+    "update-types": "gen-typescript-declarations --deleteExisting --outDir . --verify",
     "test": "karma start --coverage",
     "test:watch": "karma start --auto-watch=true --single-run=false",
-    "test:legacy": "karma start --legacy --coverage",
-    "test:legacy:watch": "karma start --legacy --auto-watch=true --single-run=false",
-    "test:sl": "karma start karma.sl.config.js --legacy --coverage",
-    "update-types": "gen-typescript-declarations --deleteExisting --outDir .",
+    "test:legacy": "karma start --compatibility auto --coverage",
+    "test:legacy:watch": "karma start --compatibility auto --auto-watch=true --single-run=false",
+    "test:sl": "karma start karma.sl.config.js --compatibility auto --coverage",
     "lint:eslint": "eslint --ext .js,.html .",
     "format:eslint": "eslint --ext .js,.html . --fix",
     "lint:prettier": "prettier \"**/*.js\" --list-different || (echo '↑↑ these files are not prettier formatted ↑↑' && exit 1)",
@@ -61,7 +62,7 @@
     "format": "npm run format:eslint && npm run format:prettier"
   },
   "dependencies": {
-    "@polymer/polymer": "^3.3.0"
+    "@polymer/polymer": "^3.3.1"
   },
   "lint-staged": {
     "*.js": [
