@@ -1,70 +1,75 @@
 import { fixture, expect, assert, nextFrame } from '@open-wc/testing';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import * as sinon from 'sinon';
+import * as MockInteractions from '@polymer/iron-test-helpers/mock-interactions.js';
 import './test-elements.js';
-import '@polymer/iron-test-helpers/mock-interactions.js';
 
-/* global MockInteractions  */
-
-describe('Focused state tests', function() {
+describe('Focused state tests', () => {
   async function trivialFocusedState() {
-    return (await fixture(`<test-control tabindex="-1"></test-control>`));
+    return fixture(`<test-control tabindex="-1"></test-control>`);
   }
 
   async function trivialButtonFixture() {
-    return (await fixture(`<test-button></test-button>`));
+    return fixture(`<test-button></test-button>`);
   }
 
   async function nestedFocusedState() {
-    return (await fixture(`<nested-focusable></nested-focusable>`));
+    return fixture(`<nested-focusable></nested-focusable>`);
   }
 
   async function lightDOMFixture() {
-    return (await fixture(`<test-light-dom>
+    return fixture(`<test-light-dom>
         <input id="input">
         <nested-focusable></nested-focusable>
-      </test-light-dom>`));
+      </test-light-dom>`);
   }
 
-  describe('focused-state', function() {
+  describe('focused-state', () => {
     let focusTarget;
     beforeEach(async () => {
       focusTarget = await trivialFocusedState();
     });
 
-    describe('when is focused', function() {
-      it('receives a focused attribute', function() {
+    describe('when is focused', () => {
+      it('receives a focused attribute', async () => {
         expect(focusTarget.hasAttribute('focused')).to.be.eql(false);
         MockInteractions.focus(focusTarget);
+        await nextFrame();
         expect(focusTarget.hasAttribute('focused')).to.be.eql(true);
       });
 
-      it('focused property is true', function() {
+      it('focused property is true', async () => {
         expect(focusTarget.focused).to.not.be.eql(true);
         MockInteractions.focus(focusTarget);
+        await nextFrame();
         expect(focusTarget.focused).to.be.eql(true);
       });
     });
 
-    describe('when is blurred', function() {
-      it('loses the focused attribute', function() {
+    describe('when is blurred', () => {
+      it('loses the focused attribute', async () => {
         MockInteractions.focus(focusTarget);
+        await nextFrame();
         expect(focusTarget.hasAttribute('focused')).to.be.eql(true);
         MockInteractions.blur(focusTarget);
+        await nextFrame();
         expect(focusTarget.hasAttribute('focused')).to.be.eql(false);
       });
 
-      it('focused property is false', function() {
+      it('focused property is false', async () => {
         MockInteractions.focus(focusTarget);
+        await nextFrame();
         expect(focusTarget.focused).to.be.eql(true);
         MockInteractions.blur(focusTarget);
+        await nextFrame();
         expect(focusTarget.focused).to.be.eql(false);
       });
     });
 
-    describe('when the focused state is disabled', function() {
-      it('will not be focusable', function() {
+    describe('when the focused state is disabled', () => {
+      it('will not be focusable', async () => {
         const blurSpy = sinon.spy(focusTarget, 'blur');
         MockInteractions.focus(focusTarget);
+        await nextFrame();
         focusTarget.disabled = true;
         expect(focusTarget.getAttribute('tabindex')).to.be.eql('-1');
         expect(blurSpy.called).to.be.eql(true);
@@ -72,7 +77,7 @@ describe('Focused state tests', function() {
     });
   });
 
-  describe('nested focusable', function() {
+  describe('nested focusable', () => {
     let focusable;
     beforeEach(async () => {
       focusable = await nestedFocusedState();
@@ -81,17 +86,17 @@ describe('Focused state tests', function() {
       await nextFrame();
     });
 
-    it('focus/blur events fired on host element', function() {
+    it('focus/blur events fired on host element', () => {
       let nFocusEvents = 0;
       let nBlurEvents = 0;
       const input = focusable.shadowRoot.querySelector('#input');
-      focusable.addEventListener('focus', function() {
+      focusable.addEventListener('focus', () => {
         nFocusEvents += 1;
         expect(focusable.focused).to.be.equal(true);
         MockInteractions.blur(input);
       });
 
-      focusable.addEventListener('blur', function() {
+      focusable.addEventListener('blur', () => {
         expect(focusable.focused).to.be.equal(false);
         nBlurEvents += 1;
       });
@@ -101,7 +106,7 @@ describe('Focused state tests', function() {
     });
   });
 
-  describe('elements in the light dom', function() {
+  describe('elements in the light dom', () => {
     let lightDOM;
     let input;
     let lightDescendantShadowInput;
@@ -109,21 +114,22 @@ describe('Focused state tests', function() {
     beforeEach(async () => {
       lightDOM = await lightDOMFixture();
       input = lightDOM.querySelector('#input');
-      lightDescendantShadowInput = lightDOM.querySelector('nested-focusable')
+      lightDescendantShadowInput = lightDOM
+        .querySelector('nested-focusable')
         .shadowRoot.querySelector('#input');
     });
 
-    it('should not fire the focus event', function() {
+    it('should not fire the focus event', () => {
       let nFocusEvents = 0;
-      lightDOM.addEventListener('focus', function() {
+      lightDOM.addEventListener('focus', () => {
         nFocusEvents += 1;
       });
       MockInteractions.focus(input);
       expect(nFocusEvents).to.be.equal(0);
     });
-    it('should not fire the focus event from shadow descendants', function() {
+    it('should not fire the focus event from shadow descendants', () => {
       let nFocusEvents = 0;
-      lightDOM.addEventListener('focus', function() {
+      lightDOM.addEventListener('focus', () => {
         nFocusEvents += 1;
       });
       MockInteractions.focus(lightDescendantShadowInput);

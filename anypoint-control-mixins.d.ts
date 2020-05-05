@@ -11,10 +11,8 @@
 
 // tslint:disable:variable-name Describing an API that's defined elsewhere.
 
-import {HoverableMixin} from './hoverable-mixin.js';
-
-import {ButtonStateMixin} from './button-state-mixin.js';
-
-import {ControlStateMixin} from './control-state-mixin.js';
+import { HoverableMixin } from './hoverable-mixin';
+import { ButtonStateMixin } from './button-state-mixin';
+import { ControlStateMixin } from './control-state-mixin';
 
 export {HoverableMixin, ButtonStateMixin, ControlStateMixin};

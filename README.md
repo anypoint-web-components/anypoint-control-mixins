@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/anypoint-web-components/anypoint-control-mixins.svg?branch=master)](https://travis-ci.org/anypoint-web-components/anypoint-control-mixins) 
+[![Build Status](https://travis-ci.org/anypoint-web-components/anypoint-control-mixins.svg?branch=master)](https://travis-ci.org/anypoint-web-components/anypoint-control-mixins)
 
 [![Published on NPM](https://img.shields.io/npm/v/@anypoint-web-components/anypoint-control-mixins.svg)](https://www.npmjs.com/package/@anypoint-web-components/anypoint-control-mixins)
 
@@ -20,14 +20,14 @@ Useful for designing custom buttons and other form elements that accept user inp
 
 ### Installation
 ```
-npm install --save @anypoint-web-components/anypoint-control-mixins
+npm install @anypoint-web-components/anypoint-control-mixins --save
 ```
 
 ### In a LitElement
 
 ```js
 import { LitElement, html } from 'lit-element';
-import { ButtonStateMixin, ControlStateMixin } from '@anypoint-web-components/anypoint-control-mixins/anypoint-control-mixins.js';
+import { ButtonStateMixin, ControlStateMixin } from '@anypoint-web-components/anypoint-control-mixins';
 
 class SimpleButton extends ControlStateMixin(ButtonStateMixin(LitElement)) {
   static get styles() {

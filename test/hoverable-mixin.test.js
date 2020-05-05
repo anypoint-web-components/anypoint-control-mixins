@@ -1,19 +1,19 @@
-import { fixture, assert } from '@open-wc/testing';
-import sinon from 'sinon/pkg/sinon-esm.js';
+import { fixture, assert, nextFrame } from '@open-wc/testing';
+import * as sinon from 'sinon';
 import './hoverable-test-element.js';
 import './hoverable-test-native.js';
 
-describe('HoverableMixin', function() {
+describe('HoverableMixin', () => {
   async function hoverableFixture() {
-    return (await fixture(`<hoverable-test-element></hoverable-test-element>`));
+    return fixture(`<hoverable-test-element></hoverable-test-element>`);
   }
 
   async function hoverableChildFixture() {
-    return (await fixture(`<hoverable-test-element><input/></hoverable-test-element>`));
+    return fixture(`<hoverable-test-element><input/></hoverable-test-element>`);
   }
 
   async function nativeFixture() {
-    return (await fixture(`<hoverable-test-native></hoverable-test-native>`));
+    return fixture(`<hoverable-test-native></hoverable-test-native>`);
   }
 
   describe('Setters and getters', () => {
@@ -73,16 +73,19 @@ describe('HoverableMixin', function() {
     it('Adds hovered attribute', async () => {
       const element = await hoverableFixture();
       element.dispatchEvent(new CustomEvent('mouseover'));
+      await nextFrame();
       assert.isTrue(element.hasAttribute('hovered'));
     });
 
     it('Handles light DOM hover', async () => {
       const element = await hoverableChildFixture();
       const input = element.querySelector('input');
-      input.dispatchEvent(new CustomEvent('mouseover', {
-        // mouseover event bubbles per spec
-        bubbles: true
-      }));
+      input.dispatchEvent(
+        new CustomEvent('mouseover', {
+          // mouseover event bubbles per spec
+          bubbles: true,
+        })
+      );
       assert.isTrue(element.hovered);
     });
   });
@@ -106,6 +109,7 @@ describe('HoverableMixin', function() {
       const element = await hoverableFixture();
       element._hovered = true;
       element.dispatchEvent(new CustomEvent('mouseleave'));
+      await nextFrame();
       assert.isFalse(element.hasAttribute('hovered'));
     });
 
@@ -113,10 +117,12 @@ describe('HoverableMixin', function() {
       const element = await hoverableChildFixture();
       element._hovered = true;
       const input = element.querySelector('input');
-      input.dispatchEvent(new CustomEvent('mouseleave', {
-        // mouseover event bubbles per spec
-        bubbles: true
-      }));
+      input.dispatchEvent(
+        new CustomEvent('mouseleave', {
+          // mouseover event bubbles per spec
+          bubbles: true,
+        })
+      );
       assert.isFalse(element.hovered);
     });
   });
