@@ -1,6 +1,6 @@
 /**
 @license
-Copyright 2017 Mulesoft.
+Copyright 2017 MuleSoft.
 
 All rights reserved.
 */
@@ -16,21 +16,27 @@ const mxFunction = base => {
       return {
         /**
          * If true, the button toggles the active state with each click or press
-         * of the spacebar.
+         * of the space bar.
+         * @attribute
          */
         toggles: { type: Boolean, reflect: true },
         /**
          * If true, the button is a toggle and is currently in the active state.
+         * @attribute
          */
         active: { type: Boolean, reflect: true },
         /**
          * The aria attribute to be set if the button is a toggle and in the
          * active state.
+         * @attribute
          */
         ariaActiveAttribute: { type: String, reflect: true },
 
         _pointerDown: { type: Boolean },
         _receivedFocusFromKeyboard: { type: Boolean },
+        /**
+         * @attribute 
+         */
         _pressed: { type: Boolean, reflect: true, attribute: 'pressed' },
       };
     }

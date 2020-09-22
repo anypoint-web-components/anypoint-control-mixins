@@ -1,6 +1,6 @@
 /**
 @license
-Copyright 2017 Mulesoft.
+Copyright 2017 MuleSoft.
 
 All rights reserved.
 */

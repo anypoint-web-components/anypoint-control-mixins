@@ -1,6 +1,6 @@
 /**
 @license
-Copyright 2017 Mulesoft.
+Copyright 2017 MuleSoft.
 
 All rights reserved.
 */
@@ -16,10 +16,12 @@ const mxFunction = base => {
       return {
         /**
          * If true, the button is a toggle and is currently in the active state.
+         * @attribute
          */
         disabled: { type: Boolean, reflect: true },
         /**
          * If true, the element currently has focus.
+         * @attribute
          */
         focused: { type: Boolean, reflect: true },
       };

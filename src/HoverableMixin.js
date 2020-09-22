@@ -1,6 +1,6 @@
 /**
 @license
-Copyright 2017 Mulesoft.
+Copyright 2017 MuleSoft.
 
 All rights reserved.
 */
@@ -16,6 +16,7 @@ const mxFunction = base => {
       return {
         /**
          * True when the element is currently hovered by a pointing device.
+         * @attribute
          */
         _hovered: { type: Boolean, reflect: true, attribute: 'hovered' },
       };
@@ -118,7 +119,7 @@ const mxFunction = base => {
 
 /**
  * Use `HoverableMixin` to implement an element that can be hovered.
- * The control gets a `hovered` attribute when it's hovered by the pointing devide.
+ * The control gets a `hovered` attribute when it's hovered by the pointing device.
  *
  * Be aware that mobile devices will not support hovering as desktop devices and behavior
  * may vary depending on platform. You should use this as little as possible.

@@ -6,7 +6,7 @@ interface ButtonStateMixinConstructor {
 interface ButtonStateMixin {
   /**
    * If true, the button toggles the active state with each click or press
-   * of the spacebar.
+   * of the space bar.
    */
   toggles: boolean;
   /**

@@ -1,17 +1,17 @@
+# Anypoint control state mixins for web components
+
 [![Build Status](https://travis-ci.org/anypoint-web-components/anypoint-control-mixins.svg?branch=master)](https://travis-ci.org/anypoint-web-components/anypoint-control-mixins)
 
 [![Published on NPM](https://img.shields.io/npm/v/@anypoint-web-components/anypoint-control-mixins.svg)](https://www.npmjs.com/package/@anypoint-web-components/anypoint-control-mixins)
 
-# Anypoint control state mixins for web components
-
 A set of components that reflect control state to properties and / or attributes.
-It can be used to control behaviour of a control depending on user input.
+It can be used to control behavior of a control depending on user input.
 
 Included controls:
 
--   `hoverable-mixin.js` - A mixin reflecting mouse over state on `hovered` property reflected to an attribute.
--   `button-state-mixin.js` - A mixin reflecting button state like `active`, `pressed`, `pointerDown`, or `receivedFocusFromKeyboard`.
--   `control-state-mixin.js` - A mixin reflecting `focused` state and handing `disabled` state of the control.
+- `hoverable-mixin.js` - A mixin reflecting mouse over state on `hovered` property reflected to an attribute.
+- `button-state-mixin.js` - A mixin reflecting button state like `active`, `pressed`, `pointerDown`, or `receivedFocusFromKeyboard`.
+- `control-state-mixin.js` - A mixin reflecting `focused` state and handing `disabled` state of the control.
 
 They are designed to handle aria attributes and state management in various state combinations.
 Useful for designing custom buttons and other form elements that accept user input.
@@ -19,7 +19,8 @@ Useful for designing custom buttons and other form elements that accept user inp
 ## Usage
 
 ### Installation
-```
+
+```sh
 npm install @anypoint-web-components/anypoint-control-mixins --save
 ```
 
@@ -85,6 +86,7 @@ npm start
 ```
 
 ### Running the tests
+
 ```sh
 npm test
 ```
