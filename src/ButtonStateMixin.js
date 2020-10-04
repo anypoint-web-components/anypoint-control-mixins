@@ -59,6 +59,8 @@ const mxFunction = base => {
         return;
       }
       this.__pressed = value;
+      this.dispatchEvent(new Event('pressedchange'));
+      // deprecate this event
       this.dispatchEvent(
         new CustomEvent('pressed-changed', {
           composed: true,
@@ -85,6 +87,7 @@ const mxFunction = base => {
         return;
       }
       this._active = value;
+      this.dispatchEvent(new Event('activechange'));
       this.dispatchEvent(
         new CustomEvent('active-changed', {
           composed: true,

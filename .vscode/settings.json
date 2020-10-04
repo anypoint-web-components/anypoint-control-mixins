@@ -1,9 +1,11 @@
 {
   "cSpell.words": [
     "Hoverable",
+    "activechange",
     "disabledchange",
     "focusedchange",
     "hoverchange",
+    "pressedchange",
     "rgba"
   ]
 }

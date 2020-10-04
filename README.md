@@ -1,9 +1,5 @@
 # Anypoint control state mixins for web components
 
-[![Build Status](https://travis-ci.org/anypoint-web-components/anypoint-control-mixins.svg?branch=master)](https://travis-ci.org/anypoint-web-components/anypoint-control-mixins)
-
-[![Published on NPM](https://img.shields.io/npm/v/@anypoint-web-components/anypoint-control-mixins.svg)](https://www.npmjs.com/package/@anypoint-web-components/anypoint-control-mixins)
-
 A set of components that reflect control state to properties and / or attributes.
 It can be used to control behavior of a control depending on user input.
 
@@ -15,6 +11,10 @@ Included controls:
 
 They are designed to handle aria attributes and state management in various state combinations.
 Useful for designing custom buttons and other form elements that accept user input.
+
+[![Build Status](https://travis-ci.com/anypoint-web-components/anypoint-control-mixins.svg)](https://travis-ci.com/anypoint-web-components/anypoint-control-mixins)
+
+[![Published on NPM](https://img.shields.io/npm/v/@anypoint-web-components/anypoint-control-mixins.svg)](https://www.npmjs.com/package/@anypoint-web-components/anypoint-control-mixins)
 
 ## Usage
 

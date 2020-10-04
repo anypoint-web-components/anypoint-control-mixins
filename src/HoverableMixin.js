@@ -9,6 +9,7 @@ import { dedupeMixin } from '@open-wc/dedupe-mixin';
 
 /**
  * @param {typeof HTMLElement} base
+ * @deprecated This mixin is deprecated and should not be used in any new project.
  */
 const mxFunction = base => {
   class HoverableMixinImpl extends base {
@@ -16,7 +17,6 @@ const mxFunction = base => {
       return {
         /**
          * True when the element is currently hovered by a pointing device.
-         * @attribute
          */
         _hovered: { type: Boolean, reflect: true, attribute: 'hovered' },
       };

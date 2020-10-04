@@ -3,13 +3,19 @@ interface ControlStateMixinConstructor {
   new(...args: any[]): ControlStateMixin;
 }
 
+/**
+ * @fires focusedchange When the `focused` property has changed
+ * @fires disabledchange When the `disabled` property has changed
+ */
 interface ControlStateMixin {
   /**
    * If true the button is a toggle and is currently in the active state.
+   * @attribute
    */
   disabled: boolean;
   /**
    * If true the element currently has focus.
+   * @attribute
    */
   focused: boolean;
 

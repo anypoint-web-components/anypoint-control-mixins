@@ -3,6 +3,9 @@ interface HoverableMixinConstructor {
   new(...args: any[]): HoverableMixin;
 }
 
+/**
+ * @fires hoverchange When the `hover` property has changed
+ */
 interface HoverableMixin {
   /**
    * True when the element is currently hovered by a pointing device.
