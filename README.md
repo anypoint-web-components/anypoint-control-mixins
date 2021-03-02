@@ -12,9 +12,9 @@ Included controls:
 They are designed to handle aria attributes and state management in various state combinations.
 Useful for designing custom buttons and other form elements that accept user input.
 
-[![Build Status](https://travis-ci.com/anypoint-web-components/anypoint-control-mixins.svg)](https://travis-ci.com/anypoint-web-components/anypoint-control-mixins)
-
 [![Published on NPM](https://img.shields.io/npm/v/@anypoint-web-components/anypoint-control-mixins.svg)](https://www.npmjs.com/package/@anypoint-web-components/anypoint-control-mixins)
+
+[![tests](https://github.com/anypoint-web-components/anypoint-control-mixins/actions/workflows/tests.yml/badge.svg)](https://github.com/anypoint-web-components/anypoint-control-mixins/actions/workflows/tests.yml)
 
 ## Usage
 
