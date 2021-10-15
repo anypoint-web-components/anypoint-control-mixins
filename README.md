@@ -1,4 +1,8 @@
-# Anypoint control state mixins for web components
+# Deprecated
+
+This component has been moved to `anypoint-web-components/awc`.
+
+====
 
 A set of components that reflect control state to properties and / or attributes.
 It can be used to control behavior of a control depending on user input.
