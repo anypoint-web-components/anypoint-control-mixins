@@ -29,7 +29,7 @@
   "devDependencies": {
     "@advanced-rest-client/arc-demo-helper": "^1.0.17",
     "@open-wc/eslint-config": "^4.3.0",
-    "@open-wc/testing": "^2.5.33",
+    "@open-wc/testing": "^3.1.7",
     "@polymer/iron-test-helpers": "^3.0.0",
     "@polymer/paper-input": "^3.2.1",
     "@web/dev-server": "^0.1.25",
